@@ -42,7 +42,7 @@
 //        // 数据源配置
 //        DataSourceConfig dsc = new DataSourceConfig();
 //        //连接的url地址
-//        dsc.setUrl("jdbc:mysql://192.168.101.152:3306/testabc?useUnicode=true&characterEncoding=utf-8&useSSL=false");
+//        dsc.setUrl("jdbc:mysql://192.168.101.152:3306/wx-rcgy?useUnicode=true&characterEncoding=utf-8&useSSL=false");
 //        // dsc.setSchemaName("public");
 //        //设置驱动的名称
 //        dsc.setDriverName("com.mysql.cj.jdbc.Driver");

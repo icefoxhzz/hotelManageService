@@ -59,3 +59,16 @@ spring:
           driver-class-name: com.p6spy.engine.spy.P6SpyDriver
           druid: # 以下参数针对每个库可以重新设置druid参数
             validation-query: select 1  #比如mysql就需要重新设置这个
+  redis:
+    database: 1
+    host: 192.168.101.152
+    port: 6379
+    password: A123!qazWSX@
+    timeout: 10000
+    expire: 60  # 过期时间（分钟）
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1

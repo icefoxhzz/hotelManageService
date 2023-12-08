@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 合约单位表
+ * 客请随同人员表
  * </p>
  *
  * @author saber
@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelContractEnterprise implements Serializable {
+public class HotelBGuestFollower implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,19 +24,29 @@ public class HotelContractEnterprise implements Serializable {
     private Integer id;
 
     /**
-     * 单位名称
+     * hotel_guest_info表的id
+     */
+    private Integer infoId;
+
+    /**
+     * 名字
      */
     private String name;
 
     /**
-     * 单位地址
+     * 电话
      */
-    private String address;
+    private String phone;
 
     /**
-     * 折扣率百分比
+     * 证件类型（字典表:  dict_certificate_type）
      */
-    private Float discountRate;
+    private Integer certificateType;
+
+    /**
+     * 证件号码
+     */
+    private String certificateCode;
 
 
 }

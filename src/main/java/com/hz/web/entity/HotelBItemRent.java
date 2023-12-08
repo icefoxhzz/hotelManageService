@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 租户费用设置表
+ * 租户物品租赁表
  * </p>
  *
  * @author saber
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelGuestService implements Serializable {
+public class HotelBItemRent implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,29 +25,39 @@ public class HotelGuestService implements Serializable {
     private Integer id;
 
     /**
-     * dict_service表的id
+     * flat_guest_info表的id
      */
-    private Integer serviceId;
+    private Integer guestInfoId;
 
     /**
-     * 每月期数（执行次数）
+     * 物品名称
      */
-    private Integer monthTimes;
+    private String itemName;
 
     /**
-     * 缴费类型 （字典表: dict_service_pay_type）
+     * 物品价格
      */
-    private Integer servicePayType;
+    private Float itemPrice;
 
     /**
-     * 缴费方式 （字典表: dict_service_pay_interval_type）
+     * 租赁日期
      */
-    private Integer servicePayIntervalType;
+    private LocalDateTime rentDate;
 
     /**
-     * 缴费日期
+     * 租赁天数
      */
-    private LocalDateTime servicePayDate;
+    private Integer rentDays;
+
+    /**
+     * 归还日期
+     */
+    private LocalDateTime giveBackDate;
+
+    /**
+     * 是否归还
+     */
+    private Integer isGaveBack;
 
 
 }

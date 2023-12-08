@@ -2,13 +2,14 @@ package com.hz.web.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 房间信息表
+ * 租户费用设置表
  * </p>
  *
  * @author saber
@@ -16,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelRoomInfo implements Serializable {
+public class HotelBGuestService implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,34 +25,29 @@ public class HotelRoomInfo implements Serializable {
     private Integer id;
 
     /**
-     * 房间类型（字典表: dict_room_type）
+     * dict_service表的id
      */
-    private Integer roomType;
+    private Integer serviceId;
 
     /**
-     * 楼层
+     * 每月期数（执行次数）
      */
-    private String floor;
+    private Integer monthTimes;
 
     /**
-     * 房号
+     * 缴费类型 （字典表: dict_service_pay_type）
      */
-    private String room;
+    private Integer servicePayType;
 
     /**
-     * 朝向 (字典表:  dict_direction)
+     * 缴费方式 （字典表: dict_service_pay_interval_type）
      */
-    private Integer direction;
+    private Integer servicePayIntervalType;
 
     /**
-     * 租金RMB
+     * 缴费日期
      */
-    private Float rent;
-
-    /**
-     * 物品清单
-     */
-    private String items;
+    private LocalDateTime servicePayDate;
 
 
 }

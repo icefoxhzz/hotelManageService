@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 @Slf4j
 @Controller
 @RequestMapping("/hotel")
-public class HotelController {
+public class HotelBController {
 
 }
 

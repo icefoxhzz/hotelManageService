@@ -2,13 +2,14 @@ package com.hz.web.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 客请随同人员表
+ * 角色表
  * </p>
  *
  * @author saber
@@ -16,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelGuestFollower implements Serializable {
+public class HotelSRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,29 +25,23 @@ public class HotelGuestFollower implements Serializable {
     private Integer id;
 
     /**
-     * hotel_guest_info表的id
-     */
-    private Integer infoId;
-
-    /**
-     * 名字
+     * 角色名称
      */
     private String name;
 
     /**
-     * 电话
+     * 级别越小越高
      */
-    private String phone;
+    private Integer sort;
+
+    private String remark;
 
     /**
-     * 证件类型（字典表:  dict_certificate_type）
+     * 状态
      */
-    private Integer certificateType;
+    private Integer status;
 
-    /**
-     * 证件号码
-     */
-    private String certificateCode;
+    private LocalDateTime createtime;
 
 
 }

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 房型信息表
+ * 合约单位表
  * </p>
  *
  * @author saber
@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelRoomTypeInfo implements Serializable {
+public class HotelBContractEnterprise implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,24 +24,19 @@ public class HotelRoomTypeInfo implements Serializable {
     private Integer id;
 
     /**
-     * 户型名称
+     * 单位名称
      */
     private String name;
 
     /**
-     * 类型
+     * 单位地址
      */
-    private Integer roomType;
+    private String address;
 
     /**
-     * 面积
+     * 折扣率百分比
      */
-    private Float area;
-
-    /**
-     * 物品清单
-     */
-    private String items;
+    private Float discountRate;
 
 
 }
