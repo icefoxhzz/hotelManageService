@@ -1,6 +1,8 @@
 package com.hz.web.service;
 
-import com.hz.web.entity.HotelSMenu;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.hz.web.entity.*;
 import com.hz.web.mapper.HotelSMapper;
 import com.swsk.lib.base.common.Const;
 import com.swsk.lib.base.entity.SessionInfo;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -38,11 +41,10 @@ public class HotelSService {
         loginInfo.setUserid(user.getUserid());
         loginInfo.setUsername(user.getLoginname());
         loginInfo.setDisplayname(user.getUsername());
-//        loginInfo.setAreacode(user.getAreacode());
-//        loginInfo.setAdcode(user.getAdcode());
+        loginInfo.setAreacode(user.getAreacode());
+        loginInfo.setAdcode(user.getAdcode());
         loginInfo.setUserorg(user.getUserorg());
         loginInfo.setUserorgname(user.getUserorgname());
-        //loginInfo.setToken(token);
         loginInfo.setGeokey(token);
         loginInfo.setRoles(hotelSMapper.getUserRoleInfo(user.getUserid()));
         loginInfo.setActivetime(new Date());
@@ -64,7 +66,57 @@ public class HotelSService {
         return true;
     }
 
-    public List<HotelSMenu> getMenuByRole(int roleId){
+    public List<HotelSMenu> getMenuByRole(int roleId) {
         return hotelSMapper.getMenuByRole(roleId);
+    }
+
+    public Page<HotelSOrg> listOrg(String key, int page, int size) {
+        // todo checkSession
+        PageHelper.startPage(page, size);
+        return hotelSMapper.listOrg(key);
+    }
+
+//    public HotelSOrg getOrgById(int orgId) {
+//        return hotelSMapper.getOrgById(orgId);
+//    }
+
+    public int addOrg(HotelSOrg org) {
+        return hotelSMapper.insert(org);
+    }
+
+    public int updateOrg(HotelSOrg org) {
+        return hotelSMapper.updateOrg(org);
+    }
+
+    public int removeOrg(int orgId) {
+        return hotelSMapper.removeOrg(orgId);
+    }
+
+    public List<HotelSRole> getRoleByOrg(int orgId) {
+        return hotelSMapper.getRoleByOrg(orgId);
+    }
+
+    public int addRole(HotelSOrgRole hotelSOrgRole) {
+        return hotelSMapper.addRole(hotelSOrgRole.getOrgId(), hotelSOrgRole.getRoleId());
+    }
+
+    public int removeRole(HotelSOrgRole hotelSOrgRole) {
+        return hotelSMapper.removeRole(hotelSOrgRole.getOrgId(), hotelSOrgRole.getRoleId());
+    }
+
+    public int addMenuToRole(HotelSRoleMenu hotelSRoleMenu) {
+        return hotelSMapper.addMenuToRole(hotelSRoleMenu.getRoleId(), hotelSRoleMenu.getMenuId());
+    }
+
+    public int removeMenuFromRole(HotelSRoleMenu hotelSRoleMenu) {
+        return hotelSMapper.removeMenuFromRole(hotelSRoleMenu.getRoleId(), hotelSRoleMenu.getMenuId());
+    }
+
+    public int addUser(HotelSUser user) {
+        return hotelSMapper.addUser(user);
+    }
+
+    public int removeUser(int userId) {
+        return hotelSMapper.removeUser(userId);
     }
 }

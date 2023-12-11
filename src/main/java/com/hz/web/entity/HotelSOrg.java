@@ -3,12 +3,15 @@ package com.hz.web.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 客请随同人员表
+ * 
  * </p>
  *
  * @author saber
@@ -16,37 +19,12 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelBGuestFollower implements Serializable {
+@TableName("hotel_s_org")
+public class HotelSOrg implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
-    /**
-     * hotel_guest_info表的id
-     */
-    private Integer infoId;
-
-    /**
-     * 名字
-     */
     private String name;
-
-    /**
-     * 电话
-     */
-    private String phone;
-
-    /**
-     * 证件类型（字典表:  dict_certificate_type）
-     */
-    private Integer certificateType;
-
-    /**
-     * 证件号码
-     */
-    private String certificateCode;
-
-
 }

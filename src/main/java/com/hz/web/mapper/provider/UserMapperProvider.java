@@ -1,7 +1,9 @@
 package com.hz.web.mapper.provider;
 
 import com.hz.utils.MyStringUtil;
+import com.hz.web.entity.HotelSOrg;
 import com.hz.web.entity.HotelSUser;
+import com.swsk.lib.base.utils.Common;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,10 +36,40 @@ public class UserMapperProvider {
         return sql;
     }
 
+    public String getAddOrgSql(@Param("org") HotelSOrg org){
+        String sql = "insert into hotel_s_org(name) values('%s')";
+        sql = String.format(sql,
+                org.getName()
+        );
+        return sql;
+    }
+
+    public String getUpdateOrgSql(@Param("org") HotelSOrg org){
+        String sql = "update hotel_s_org set name='%s' where id=%d";
+        sql = String.format(sql,
+                org.getName(),
+                org.getId()
+        );
+        return sql;
+    }
+
+
     public String getUserInfoSql(@Param("loginName") String loginName){
         String sql = "select * from v_sa_loaduser where loginname='%s'";
         sql = String.format(sql, loginName);
         return sql;
     }
+
+    public String getListOrgSql(@Param("key") String key){
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append(" select * from hotel_s_org where 1=1 ");
+        if (!Common.isNullOrEmpty(key)){
+            sBuilder.append(String.format(" and name like %%s% ", key));
+        }
+
+//        sBuilder.append(" order by create_time asc");
+        return sBuilder.toString();
+    }
+
 
 }

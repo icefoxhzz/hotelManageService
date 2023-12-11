@@ -60,11 +60,7 @@
             <artifactId>pagehelper</artifactId>
             <version>5.3.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
-            <version>2.0.41</version>
-        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -95,6 +91,18 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.42</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.42</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-json</artifactId>-->
+<!--            <version>5.7.10</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.swsk.cloud</groupId>

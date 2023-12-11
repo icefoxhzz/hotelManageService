@@ -12,11 +12,11 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author saber
- * @since 2023-12-07
+ * @since 2023-12-11
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class HotelSUserRole implements Serializable {
+public class HotelSOrgRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,9 +24,9 @@ public class HotelSUserRole implements Serializable {
     private Integer id;
 
     /**
-     * hotel_s_user表的id
+     * hotel_s_org表的id
      */
-    private Integer userId;
+    private Integer orgId;
 
     /**
      * hotel_s_role表的id
